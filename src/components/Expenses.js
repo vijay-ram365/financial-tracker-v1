@@ -29,6 +29,20 @@ export default function Expenses({ totalRevenue }) {
     initialValue
   );
 
+  function expensesLowToHigh() {
+    const sortedExpenseItems = expenseItems.sort(
+      (a, b) => a.expense - b.expense
+    );
+    setExpenseItems([...sortedExpenseItems]);
+  }
+
+  function expensesHighToLow() {
+    const sortedExpenseItems = expenseItems.sort(
+      (a, b) => b.expense - a.expense
+    );
+    setExpenseItems([...sortedExpenseItems]);
+  }
+
   return (
     <>
       <main>
@@ -54,6 +68,15 @@ export default function Expenses({ totalRevenue }) {
 
         <div className="list">
           <p className="list-title">Items you have entered:</p>
+
+          <div>
+            <button className="sort-btn" onClick={expensesLowToHigh}>
+              Sort $ ⬇️
+            </button>
+            <button className="sort-btn" onClick={expensesHighToLow}>
+              Sort $ ⬆️
+            </button>
+          </div>
           {expenseItems.map((item, id) => (
             <div key={id} className="list-item">
               <p>{item.expenseDescription}</p>

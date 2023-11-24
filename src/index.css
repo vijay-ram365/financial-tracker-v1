@@ -46,12 +46,26 @@ main {
   background-color: #56687a;
 }
 
+.sort-btn {
+  cursor: pointer;
+  padding: 2px 3px;
+  margin: 3px 3px;
+  background-color: #e4e9ee;
+  border: none;
+  border-radius: 5px;
+}
+
+.sort-btn:hover {
+  background-color: #b2c2d2;
+}
+
 .delete {
   border: none;
   border-radius: 5px;
   color: rgb(245, 54, 54);
   padding: 2px 5px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .form {
@@ -79,6 +93,7 @@ main {
 
 .balance {
   text-align: center;
+  font-size: 18px;
   padding-top: 10px;
   font-weight: bold;
 }

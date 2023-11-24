@@ -30,6 +30,20 @@ export default function Revenue() {
     initialValue
   );
 
+  function revenueLowToHigh() {
+    const sortedRevenueItems = revenueItems.sort(
+      (a, b) => a.revenue - b.revenue
+    );
+    setRevenueItems([...sortedRevenueItems]);
+  }
+
+  function revenueHighToLow() {
+    const sortedRevenueItems = revenueItems.sort(
+      (a, b) => b.revenue - a.revenue
+    );
+    setRevenueItems([...sortedRevenueItems]);
+  }
+
   return (
     <>
       <header className="header">
@@ -55,8 +69,19 @@ export default function Revenue() {
           ></input>
           <button className="submit-btn">Submit</button>
         </form>
+
         <div className="list">
           <p className="list-title">Items you have entered:</p>
+
+          <div>
+            <button className="sort-btn" onClick={revenueLowToHigh}>
+              Sort $ ⬇️
+            </button>
+            <button className="sort-btn" onClick={revenueHighToLow}>
+              Sort $ ⬆️
+            </button>
+          </div>
+
           {revenueItems.map((item, id) => (
             <div key={id} className="list-item">
               <p>{item.revenueDescription}</p>
